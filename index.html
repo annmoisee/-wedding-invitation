@@ -1,12 +1,136 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Максим & Анна</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Максим & Анна</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#080808;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Cormorant Garamond',serif;
+
+}
+
+.scene{
+
+opacity:0;
+animation:fade 2s forwards;
+
+}
+
+@keyframes fade{
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.envelope{
+
+width:340px;
+height:220px;
+background:#5b1d2a;
+border-radius:8px;
+position:relative;
+box-shadow:
+0 20px 60px rgba(0,0,0,.6);
+
+}
+
+.envelope:before{
+
+content:"";
+position:absolute;
+left:0;
+right:0;
+top:0;
+margin:auto;
+
+width:0;
+height:0;
+
+border-left:170px solid transparent;
+border-right:170px solid transparent;
+border-top:110px solid #6d2434;
+
+}
+
+.seal{
+
+width:92px;
+height:92px;
+background:#7a2436;
+border-radius:50%;
+position:absolute;
+left:50%;
+top:52%;
+transform:translate(-50%,-50%);
+display:flex;
+justify-content:center;
+align-items:center;
+color:#d8b56d;
+font-family:'Great Vibes',cursive;
+font-size:24px;
+text-align:center;
+line-height:1.1;
+box-shadow:
+0 0 18px rgba(0,0,0,.45);
+
+}
+
+.hint{
+
+position:absolute;
+bottom:-60px;
+left:50%;
+transform:translateX(-50%);
+color:#bba98d;
+font-size:18px;
+letter-spacing:1px;
+
+}
+
+</style>
+
 </head>
+
 <body>
-  <h1>Максим ❤️ Анна</h1>
-  <p>19 сентября 2026</p>
+
+<div class="scene">
+
+<div class="envelope">
+
+<div class="seal">
+Это<br>по любви
+</div>
+
+<div class="hint">
+Коснитесь печати
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>
