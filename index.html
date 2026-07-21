@@ -109,7 +109,111 @@ font-size:18px;
 letter-spacing:1px;
 
 }
+/* НАЖАТИЕ ПЕЧАТИ */
 
+.seal{
+
+cursor:pointer;
+transition:.35s;
+
+}
+
+.seal:hover{
+
+transform:translate(-50%,-50%) scale(1.03);
+
+}
+
+.seal.opened{
+
+animation:sealOpen .9s forwards;
+
+}
+
+@keyframes sealOpen{
+
+0%{
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+20%{
+
+transform:translate(-50%,-48%) scale(.94);
+
+}
+
+70%{
+
+transform:translate(-50%,15px) rotate(-8deg);
+
+}
+
+100%{
+
+transform:translate(-50%,55px) rotate(-12deg);
+opacity:0;
+
+}
+
+}
+
+/* ОТКРЫТИЕ КОНВЕРТА */
+
+.envelope:before{
+
+transition:1.4s;
+
+transform-origin:top;
+
+}
+
+.envelope.open:before{
+
+transform:rotateX(180deg);
+
+}
+
+/* ТЕКСТ ВНУТРИ */
+
+.inside-text{
+
+position:absolute;
+
+top:calc(50% - 95px);
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:280px;
+
+text-align:center;
+
+font-size:24px;
+
+font-style:italic;
+
+font-family:'Cormorant Garamond',serif;
+
+color:#efe3c8;
+
+opacity:0;
+
+transition:1s;
+
+letter-spacing:.5px;
+
+}
+
+.envelope.open + .inside-text{
+
+opacity:1;
+
+transition-delay:.9s;
+
+}
 </style>
 
 </head>
