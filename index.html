@@ -2,248 +2,99 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Максим & Анна | 19 сентября 2026</title>
-
-    <meta name="theme-color" content="#000000">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Свадебное приглашение</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div id="loading">
-
-    <div class="loading-text">
-        Максим & Анна
-    </div>
-
-</div>
-
-<section id="envelopeScene">
-
-    <div class="background-glow"></div>
-
-    <div class="envelope">
-
-        <img
-            src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png"
-            alt="Конверт"
-            class="envelope-image">
-
-        <button
-            id="sealButton"
-            aria-label="Открыть приглашение">
-        </button>
-
-    </div>
-
-</section>
-
-<section id="intro">
-
-    <div class="intro-text">
-
-        Для тех,<br>
-        кого мы очень ждём<br>
-        в этот день
-
-    </div>
-
-</section>
-
-<section id="letterSection">
-
-    <div class="letter">
-
-        <div class="paper">
-
-            <div class="paper-top">
-
-                <h1 class="names">
-                    Максим <span>&</span> Анна
-                </h1>
-
-                <div class="date">
-                    19 сентября 2026
-                </div>
-
-            </div>
-
-            <div class="invitation-text">
-
-                Мы счастливы пригласить вас
-                разделить с нами один
-                из самых важных дней
-                нашей жизни.
-
-            </div>
-
-            <div class="photo-block">
-
-                <img
-                    src="photo.jpg"
-                    alt="Максим и Анна">
-
-            </div>
-                        <section class="program">
-
-                <h2>Программа дня</h2>
-
-                <div class="timeline">
-
-                    <div class="timeline-item">
-
-                        <div class="time">
-                            15:20
-                        </div>
-
-                        <div class="event">
-
-                            <h3>Регистрация брака</h3>
-
-                            <p>
-                                ЗАГС
-                            </p>
-
-                            <p>
-                                г. Хабаровск,<br>
-                                ул. Дзержинского, 46А
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="timeline-item">
-
-                        <div class="time">
-                            18:00
-                        </div>
-
-                        <div class="event">
-
-                            <h3>Праздничный вечер</h3>
-
-                            <p>
-                                Нео-бистро «Моменты»
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section class="countdown-section">
-
-                <h2>До нашей свадьбы осталось</h2>
-
-                <div id="countdown">
-
-                    <div class="count-box">
-                        <span id="days">00</span>
-                        <small>дней</small>
-                    </div>
-
-                    <div class="count-box">
-                        <span id="hours">00</span>
-                        <small>часов</small>
-                    </div>
-
-                    <div class="count-box">
-                        <span id="minutes">00</span>
-                        <small>минут</small>
-                    </div>
-
-                    <div class="count-box">
-                        <span id="seconds">00</span>
-                        <small>секунд</small>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section class="dress-code">
-
-                <h2>Dress Code</h2>
-
-                <p>
-                    Мы будем рады, если вы поддержите
-                    атмосферу нашего праздника,
-                    выбрав наряды в спокойных
-                    благородных оттенках.
-                </p>
-
-                <div class="palette">
-
-                    <div class="color c1"></div>
-                    <div class="color c2"></div>
-                    <div class="color c3"></div>
-                    <div class="color c4"></div>
-                    <div class="color c5"></div>
-                    <div class="color c6"></div>
-
-                </div>
-
-            </section>
-                        <section class="rsvp">
-
-                <h2>RSVP</h2>
-
-                <p>
-                    Пожалуйста, сообщите нам о вашем присутствии
-                    до 20 августа 2026 года.
-                </p>
-
-                <a
-                    class="rsvp-button"
-                    href="https://forms.gle/"
-                    target="_blank">
-                    Подтвердить присутствие
-                </a>
-
-            </section>
-
-            <section class="final-screen">
-
-                <div class="final-text">
-
-                    С любовью,<br><br>
-
-                    Максим & Анна
-
-                </div>
-
-                <div class="thanks">
-
-                    Спасибо, что будете рядом
-                    в этот особенный день ❤️
-
-                </div>
-
-            </section>
-
+    <!-- ========== ПЕРВЫЙ ЭКРАН: КОНВЕРТ ========== -->
+    <section id="cover" class="cover">
+        <div class="envelope-wrapper">
+            <img src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png" alt="Конверт" class="envelope-img">
+            <!-- Невидимая круглая область над сургучной печатью -->
+            <div class="seal-click-area" id="sealClick"></div>
         </div>
+    </section>
 
-    </div>
+    <!-- ========== ПИСЬМО (выезжает из конверта) ========== -->
+    <section id="letter" class="letter">
+        <div class="letter-content">
+            <p class="letter-text">Для тех,<br>кого мы очень ждём<br>в этот день</p>
+        </div>
+    </section>
 
-</section>
+    <!-- ========== ОСНОВНОЕ ПРИГЛАШЕНИЕ ========== -->
+    <section id="invitation" class="invitation">
+        <div class="invitation-inner">
 
-<script src="script.js"></script>
+            <h1 class="names">Максим <span class="amp">&</span> Анна</h1>
+            <p class="date">19 сентября 2026</p>
+            <p class="invite-text">Мы счастливы пригласить вас разделить с нами один из самых важных дней нашей жизни.</p>
 
+            <div class="photo-container">
+                <img src="photo.jpg" alt="Фотография" class="photo">
+            </div>
+
+            <div class="program">
+                <div class="program-item">
+                    <span class="time">15:20</span>
+                    <span class="event">Регистрация брака</span>
+                    <span class="place">ЗАГС</span>
+                    <span class="address">г. Хабаровск, ул. Дзержинского, 46А</span>
+                </div>
+                <div class="program-item">
+                    <span class="time">18:00</span>
+                    <span class="event">Праздничный вечер</span>
+                    <span class="place">Нео-бистро «Моменты»</span>
+                </div>
+            </div>
+
+            <div class="timer">
+                <div class="timer-block">
+                    <span class="timer-number" id="days">00</span>
+                    <span class="timer-label">дни</span>
+                </div>
+                <div class="timer-block">
+                    <span class="timer-number" id="hours">00</span>
+                    <span class="timer-label">часы</span>
+                </div>
+                <div class="timer-block">
+                    <span class="timer-number" id="minutes">00</span>
+                    <span class="timer-label">минуты</span>
+                </div>
+                <div class="timer-block">
+                    <span class="timer-number" id="seconds">00</span>
+                    <span class="timer-label">секунды</span>
+                </div>
+            </div>
+
+            <div class="dress-code">
+                <p class="dress-title">Dress Code</p>
+                <div class="flower-circles">
+                    <span class="circle" style="background:#b22222;"></span>
+                    <span class="circle" style="background:#d4af37;"></span>
+                    <span class="circle" style="background:#8b0000;"></span>
+                    <span class="circle" style="background:#c0a080;"></span>
+                    <span class="circle" style="background:#800020;"></span>
+                </div>
+            </div>
+
+            <div class="rsvp">
+                <a href="#" class="rsvp-btn">RSVP</a>
+            </div>
+
+            <div class="final">
+                <p>Спасибо,<br>что будете рядом<br>в этот день ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== АУДИО ========== -->
+    <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
 </body>
 </html>
