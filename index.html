@@ -3,96 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Свадебное приглашение</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Свадебное приглашение Максима ❤️ Анны</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ========== ПЕРВЫЙ ЭКРАН: КОНВЕРТ ========== -->
-    <section id="cover" class="cover">
-        <div class="envelope-wrapper">
-            <img src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png" alt="Конверт" class="envelope-img">
-            <!-- Невидимая круглая область над сургучной печатью -->
-            <div class="seal-click-area" id="sealClick"></div>
+    <!-- ========== ГЛАВА I: КОНВЕРТ ========== -->
+    <section id="chapter-cover" class="chapter cover-chapter">
+        <div class="envelope-scene">
+            <div class="envelope-container">
+                <img src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png" alt="Конверт" class="envelope-image">
+                <!-- Сургучная печать с текстом -->
+                <div class="seal-wrapper">
+                    <div class="seal">
+                        <span class="seal-text">«Это по любви»</span>
+                    </div>
+                    <div class="seal-hint">Коснитесь печати</div>
+                </div>
+                <!-- Невидимая область клика (повторяет размер печати) -->
+                <div class="seal-click-area" id="sealClick"></div>
+            </div>
         </div>
     </section>
 
-    <!-- ========== ПИСЬМО (выезжает из конверта) ========== -->
-    <section id="letter" class="letter">
-        <div class="letter-content">
-            <p class="letter-text">Для тех,<br>кого мы очень ждём<br>в этот день</p>
+    <!-- ========== ГЛАВА II: ПИСЬМО ========== -->
+    <section id="chapter-letter" class="chapter letter-chapter">
+        <div class="letter-paper">
+            <div class="letter-inner">
+                <p class="letter-greeting">Дорогие родные и друзья!</p>
+                <p class="letter-body">Мы будем счастливы разделить с вами самый важный день нашей жизни.<br>Приглашаем вас стать частью этого особенного момента.</p>
+                <button class="letter-btn" id="letterBtn">Разделить этот день с нами</button>
+            </div>
         </div>
     </section>
 
-    <!-- ========== ОСНОВНОЕ ПРИГЛАШЕНИЕ ========== -->
-    <section id="invitation" class="invitation">
-        <div class="invitation-inner">
-
-            <h1 class="names">Максим <span class="amp">&</span> Анна</h1>
-            <p class="date">19 сентября 2026</p>
-            <p class="invite-text">Мы счастливы пригласить вас разделить с нами один из самых важных дней нашей жизни.</p>
-
-            <div class="photo-container">
-                <img src="photo.jpg" alt="Фотография" class="photo">
+    <!-- ========== ГЛАВА III: ВАША ИСТОРИЯ ========== -->
+    <section id="chapter-story" class="chapter story-chapter">
+        <div class="story-container">
+            <div class="story-photo-wrapper">
+                <img src="photo.jpg" alt="Фото" class="story-photo">
             </div>
-
-            <div class="program">
-                <div class="program-item">
-                    <span class="time">15:20</span>
-                    <span class="event">Регистрация брака</span>
-                    <span class="place">ЗАГС</span>
-                    <span class="address">г. Хабаровск, ул. Дзержинского, 46А</span>
-                </div>
-                <div class="program-item">
-                    <span class="time">18:00</span>
-                    <span class="event">Праздничный вечер</span>
-                    <span class="place">Нео-бистро «Моменты»</span>
-                </div>
+            <div class="story-overlay">
+                <h2 class="story-names">Максим <span class="amp">&</span> Анна</h2>
+                <p class="story-date">19 сентября 2026</p>
+                <p class="story-text">Есть моменты, которые хочется прожить вместе с теми, кто дорог сердцу. Этот день — один из них.</p>
             </div>
+        </div>
+    </section>
 
-            <div class="timer">
+    <!-- ========== ГЛАВА IV: ДЕНЬ СВАДЬБЫ ========== -->
+    <section id="chapter-day" class="chapter day-chapter">
+        <div class="day-container">
+            <h2 class="day-title">19 сентября 2026</h2>
+            <div class="day-event">
+                <span class="time">15:20</span>
+                <span class="icon">💍</span>
+                <span class="event-name">Регистрация брака</span>
+                <span class="location">📍 ЗАГС</span>
+                <span class="address">г. Хабаровск, ул. Дзержинского, 46А</span>
+            </div>
+            <div class="divider-line"></div>
+            <div class="day-event">
+                <span class="time">18:00</span>
+                <span class="icon">🥂</span>
+                <span class="event-name">Сбор гостей и банкет</span>
+                <span class="location">📍 Нео-бистро «Моменты»</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ГЛАВА V: ТАЙМЕР ========== -->
+    <section id="chapter-timer" class="chapter timer-chapter">
+        <div class="timer-container">
+            <h3 class="timer-headline">До встречи осталось…</h3>
+            <div class="timer-grid">
                 <div class="timer-block">
-                    <span class="timer-number" id="days">00</span>
+                    <div class="timer-digit" id="days">00</div>
                     <span class="timer-label">дни</span>
                 </div>
                 <div class="timer-block">
-                    <span class="timer-number" id="hours">00</span>
+                    <div class="timer-digit" id="hours">00</div>
                     <span class="timer-label">часы</span>
                 </div>
                 <div class="timer-block">
-                    <span class="timer-number" id="minutes">00</span>
+                    <div class="timer-digit" id="minutes">00</div>
                     <span class="timer-label">минуты</span>
                 </div>
                 <div class="timer-block">
-                    <span class="timer-number" id="seconds">00</span>
+                    <div class="timer-digit" id="seconds">00</div>
                     <span class="timer-label">секунды</span>
                 </div>
-            </div>
-
-            <div class="dress-code">
-                <p class="dress-title">Dress Code</p>
-                <div class="flower-circles">
-                    <span class="circle" style="background:#b22222;"></span>
-                    <span class="circle" style="background:#d4af37;"></span>
-                    <span class="circle" style="background:#8b0000;"></span>
-                    <span class="circle" style="background:#c0a080;"></span>
-                    <span class="circle" style="background:#800020;"></span>
-                </div>
-            </div>
-
-            <div class="rsvp">
-                <a href="#" class="rsvp-btn">RSVP</a>
-            </div>
-
-            <div class="final">
-                <p>Спасибо,<br>что будете рядом<br>в этот день ❤️</p>
             </div>
         </div>
     </section>
 
-    <!-- ========== АУДИО ========== -->
+    <!-- ========== ГЛАВА VI: DRESS CODE ========== -->
+    <section id="chapter-dress" class="chapter dress-chapter">
+        <div class="dress-container">
+            <p class="dress-intro">Будем рады, если вы поддержите атмосферу нашего вечера, выбрав наряды в этих оттенках.</p>
+            <div class="color-palette">
+                <div class="color-swatch" style="background:#6b3e2e;"><span>шоколадный</span></div>
+                <div class="color-swatch" style="background:#8b1a1a;"><span>бордовый</span></div>
+                <div class="color-swatch" style="background:#1a1a1a;"><span>чёрный</span></div>
+                <div class="color-swatch" style="background:#f0e6d3;"><span>шампань</span></div>
+                <div class="color-swatch" style="background:#f8f4ef;"><span>молочный</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ГЛАВА VII: RSVP ========== -->
+    <section id="chapter-rsvp" class="chapter rsvp-chapter">
+        <div class="rsvp-container">
+            <button class="rsvp-btn yes" id="rsvpYes">❤️ С радостью разделю этот день с вами</button>
+            <button class="rsvp-btn no" id="rsvpNo">🤍 К сожалению, не смогу присутствовать</button>
+        </div>
+    </section>
+
+    <!-- ========== ФИНАЛ ========== -->
+    <section id="chapter-final" class="chapter final-chapter">
+        <div class="final-container">
+            <div class="final-photo-bg"></div>
+            <div class="final-text">
+                <p>Спасибо, что разделите этот день вместе с нами.</p>
+                <p class="final-sign">С любовью,<br>Максим и Анна</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Аудио фон -->
     <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
 
     <script src="script.js"></script>
