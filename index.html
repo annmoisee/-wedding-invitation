@@ -131,6 +131,22 @@ letter-spacing:1px;
 </div>
 
 </div>
+<div class="inside-text">
+Для тех, кого мы очень ждём в этот день.
+</div>
 
+<script>
+
+const seal=document.querySelector(".seal");
+const envelope=document.querySelector(".envelope");
+
+seal.addEventListener("click",()=>{
+
+seal.classList.add("opened");
+envelope.classList.add("open");
+
+});
+
+</script>
 </body>
 </html>
