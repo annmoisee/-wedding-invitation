@@ -1,241 +1,161 @@
-// ===============================
-// ELEMENTS
-// ===============================
+(function() {
+    'use strict';
 
-const intro = document.getElementById("intro");
+    // ----- ЭЛЕМЕНТЫ -----
+    const cover = document.getElementById('cover');
+    const letter = document.getElementById('letter');
+    const invitation = document.getElementById('invitation');
+    const sealClick = document.getElementById('sealClick');
+    const bgMusic = document.getElementById('bg-music');
 
-const sealButton = document.getElementById("sealButton");
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-const envelope = document.querySelector(".envelope");
+    // ----- СОСТОЯНИЕ -----
+    let isOpened = false;
+    let animationRunning = false;
 
-const insideText = document.getElementById("insideText");
+    // ----- ФУНКЦИЯ ОБНОВЛЕНИЯ ТАЙМЕРА -----
+    function updateTimer() {
+        const target = new Date('September 19, 2026 00:00:00').getTime();
+        const now = Date.now();
+        let diff = Math.max(0, target - now);
 
-const letter = document.getElementById("letter");
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * 1000 * 60 * 60 * 24;
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * 1000 * 60 * 60;
+        const minutes = Math.floor(diff / (1000 * 60));
+        diff -= minutes * 1000 * 60;
+        const seconds = Math.floor(diff / 1000);
 
-const music = document.getElementById("music");
-
-const openInvitation =
-document.getElementById("openInvitation");
-
-// ===============================
-// OPEN ENVELOPE
-// ===============================
-
-sealButton.addEventListener("click", () => {
-
-    sealButton.style.pointerEvents = "none";
-
-    envelope.style.transition =
-    "1s";
-
-    envelope.style.transform =
-    "scale(.94) rotateX(18deg)";
-
-    setTimeout(() => {
-
-        envelope.style.opacity = "0";
-
-    },700);
-
-    if(music){
-
-        music.volume = .4;
-
-        music.play().catch(()=>{});
-
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
     }
 
-    setTimeout(()=>{
+    // Обновляем таймер каждую секунду
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
-        intro.classList.add("hide");
+    // ----- АНИМАЦИЯ ОТКРЫТИЯ (GSAP) -----
+    function openInvitation() {
+        if (animationRunning || isOpened) return;
+        animationRunning = true;
 
-    },900);
+        // 1. Запустить музыку (если ещё не играет)
+        if (bgMusic.paused) {
+            bgMusic.play().catch(err => console.log('Audio play failed:', err));
+        }
 
-    setTimeout(()=>{
-
-        insideText.classList.add("show");
-
-    },1200);
-
-    setTimeout(()=>{
-
-        insideText.classList.remove("show");
-
-    },4200);
-
-    setTimeout(()=>{
-
-        letter.classList.add("show");
-
-        window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
+        // 2. Создаём таймлайн
+        const tl = gsap.timeline({
+            defaults: { ease: 'power2.inOut' },
+            onComplete: () => {
+                animationRunning = false;
+                isOpened = true;
+                // Показываем приглашение и даём возможность скролла
+                invitation.style.pointerEvents = 'auto';
+                // Скрываем письмо после того, как оно показано
+                gsap.to(letter, {
+                    opacity: 0,
+                    visibility: 'hidden',
+                    duration: 0.8,
+                    delay: 0.5,
+                    ease: 'power2.in'
+                });
+                // Показываем приглашение
+                gsap.to(invitation, {
+                    opacity: 1,
+                    visibility: 'visible',
+                    duration: 1.2,
+                    ease: 'power2.out',
+                    delay: 0.3
+                });
+            }
         });
 
-    },4700);
+        // 2.1 Конверт: улетает вверх и исчезает
+        tl.to(cover, {
+            y: '-100%',
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.inOut',
+            onComplete: () => {
+                cover.style.pointerEvents = 'none';
+            }
+        }, 0);
 
-});
+        // 2.2 Письмо: появляется и выезжает снизу вверх
+        tl.to(letter, {
+            opacity: 1,
+            visibility: 'visible',
+            duration: 0.2,
+            ease: 'none'
+        }, 0.4)
+        .fromTo(letter, 
+            { y: '100%' },
+            { y: '0%', duration: 1.4, ease: 'power3.out' },
+            '-=0.1'
+        )
+        .to(letter, {
+            opacity: 1,
+            duration: 0.2,
+            ease: 'none'
+        }, '-=0.6');
 
-// ===============================
-// BUTTON
-// ===============================
+        // 2.3 Анимация текста письма (появление по буквам или fade)
+        const letterText = document.querySelector('.letter-text');
+        tl.fromTo(letterText, 
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.out' },
+            '+=0.3'
+        );
 
-if(openInvitation){
-
-openInvitation.addEventListener(
-
-"click",
-
-()=>{
-
-document
-.querySelector(".invitation")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-});
-
-}
-
-// ===============================
-// COUNTDOWN
-// ===============================
-
-const weddingDate =
-new Date(
-
-"September 19, 2026 15:20:00"
-
-);
-// ===============================
-// TIMER
-// ===============================
-
-function updateCountdown(){
-
-    const now = new Date().getTime();
-
-    const distance =
-    weddingDate.getTime() - now;
-
-    if(distance <= 0){
-
-        return;
-
+        // 2.4 Задержка, чтобы текст письма подольше показался
+        tl.to(letter, {
+            opacity: 1,
+            duration: 0.5,
+            ease: 'none',
+            delay: 1.5 // время показа письма
+        });
     }
 
-    const days =
-    Math.floor(
-    distance /
-    (1000*60*60*24)
-    );
+    // ----- ОБРАБОТЧИК КЛИКА ПО ПЕЧАТИ -----
+    sealClick.addEventListener('click', function(e) {
+        e.preventDefault();
+        openInvitation();
+    });
 
-    const hours =
-    Math.floor(
-    (distance %
-    (1000*60*60*24)) /
-    (1000*60*60)
-    );
+    // Также по касанию для мобильных
+    sealClick.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        openInvitation();
+    }, { passive: false });
 
-    const minutes =
-    Math.floor(
-    (distance %
-    (1000*60*60)) /
-    (1000*60)
-    );
+    // ----- ПОДДЕРЖКА АВТОЗАПУСКА МУЗЫКИ НА IOS (если нужно) -----
+    // Небольшой хак: если пользователь не кликнул, но мы хотим дать возможность
+    // запустить музыку при первом касании страницы — но у нас уже есть клик по печати.
+    // Оставляем как есть.
 
-    const seconds =
-    Math.floor(
-    (distance %
-    (1000*60)) /
-    1000
-    );
+    // ----- ДОПОЛНИТЕЛЬНО: ПЛАВНОЕ ПОЯВЛЕНИЕ ПРИ ЗАГРУЗКЕ (конверт уже виден) -----
+    // Конверт изначально виден, ничего не делаем.
 
-    document.getElementById("days").textContent =
-    days;
+    // ----- ОБРАБОТЧИК ДЛЯ КНОПКИ RSVP (просто пример) -----
+    document.querySelector('.rsvp-btn')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Спасибо за подтверждение! Мы ждём вас.');
+    });
 
-    document.getElementById("hours").textContent =
-    hours;
+    // ----- ПРЕДОТВРАЩАЕМ СКРОЛЛ НА КОНВЕРТЕ -----
+    cover.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
 
-    document.getElementById("minutes").textContent =
-    minutes;
+    // ----- ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ КЛИКНУЛ, НО МЫ ХОТИМ, ЧТОБЫ КОНВЕРТ БЫЛ ВИДЕН -----
+    console.log('Сайт свадебного приглашения загружен. Нажмите на печать конверта.');
 
-    document.getElementById("seconds").textContent =
-    seconds;
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
-
-// ===============================
-// SCROLL ANIMATION
-// ===============================
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},
-
-{
-
-threshold:0.15
-
-}
-
-);
-
-document
-.querySelectorAll("section")
-.forEach(section=>{
-
-section.classList.add("fade-up");
-
-observer.observe(section);
-
-});
-
-// ===============================
-// FLOAT ENVELOPE
-// ===============================
-
-if(envelope){
-
-envelope.classList.add("float");
-
-}
-
-// ===============================
-// START
-// ===============================
-
-window.addEventListener(
-
-"load",
-
-()=>{
-
-window.scrollTo(0,0);
-
-}
-
-);
+})();
