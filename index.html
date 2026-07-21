@@ -2,106 +2,330 @@
 <html lang="ru">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Максим & Анна</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Максим & Анна</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="background"></div>
 
-<div class="scene">
+<div id="intro" class="intro">
 
-    <div class="envelope">
+    <div class="envelope-wrapper">
 
         <img
-        src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png"
-        alt="Конверт">
+            src="6CD5ABCC-605C-42B7-9927-D6E80EED8A81.png"
+            class="envelope"
+            alt="Конверт">
 
-        <div class="seal"
-        id="seal">
+        <!-- Невидимая зона нажатия поверх настоящей сургучной печати -->
 
-            <span>
-                Это<br>
-                по любви
-            </span>
-
-        </div>
-
-        <div class="hint">
-
-            Коснитесь печати
-
-        </div>
-
-    </div>
-
-</div>
-
-<div class="inside-message">
-
-    Для тех, кого мы очень ждём
-    в этот день.
-
-</div>
-
-<div class="letter">
-
-    <div class="paper">
-
-        <h1>
-
-            Дорогие родные и друзья!
-
-        </h1>
-
-        <p>
-
-            Мы будем счастливы разделить
-            с вами самый важный день нашей
-            жизни.
-
-        </p>
-
-        <p>
-
-            Приглашаем вас стать частью
-            этого особенного момента.
-
-        </p>
-
-        <button>
-
-            Разделить этот день с нами
-
+        <button
+            id="sealButton"
+            class="seal-hitbox"
+            aria-label="Открыть приглашение">
         </button>
 
     </div>
 
 </div>
 
-<div class="made">
+<div id="insideText" class="inside-text">
 
-Создано с любовью
+    Для тех, кого мы очень ждём в этот день
 
 </div>
+
+<div id="letter" class="letter">
+
+    <div class="paper">
+
+        <div class="created">
+
+            Создано с любовью
+
+        </div>
+
+        <section class="hero">
+
+            <h1>
+
+                Максим & Анна
+
+            </h1>
+
+            <div class="date">
+
+                19 сентября 2026
+
+            </div>
+
+            <p class="quote">
+
+                Есть моменты, которые хочется прожить вместе
+                с теми, кто дорог сердцу.
+                Этот день — один из них.
+
+            </p>
+
+            <button id="openInvitation">
+
+                Разделить этот день с нами
+
+            </button>
+
+        </section>
+
+        <section class="invitation">
+
+            <h2>
+
+                Дорогие родные и друзья!
+
+            </h2>
+
+            <p>
+
+                Мы будем счастливы разделить с вами один
+                из самых важных дней нашей жизни.
+
+            </p>
+
+            <p>
+
+                С огромной радостью приглашаем вас стать
+                частью нашей свадебной истории.
+
+            </p>
+
+        </section>
+
+        <section class="program">
+
+            <h2>
+
+                Программа дня
+
+            </h2>
+
+            <div class="timeline">
+
+                <div class="event">
+
+                    <div class="time">
+
+                        15:20
+
+                    </div>
+
+                    <div class="info">
+
+                        <h3>
+
+                            Регистрация
+
+                        </h3>
+
+                        <p>
+
+                            ЗАГС
+
+                        </p>
+
+                        <p>
+
+                            г. Хабаровск,
+                            ул. Дзержинского, 46А
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="event">
+
+                    <div class="time">
+
+                        18:00
+
+                    </div>
+
+                    <div class="info">
+
+                        <h3>
+
+                            Банкет
+
+                        </h3>
+
+                        <p>
+
+                            Нео-бистро «Моменты»
+
+                        </p>
+
+                        <p>
+
+                            Хабаровск
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <section class="countdown">
+
+            <h2>
+
+                До нашей встречи осталось
+
+            </h2>
+
+            <div id="countdown" class="countdown-box">
+
+                <div>
+                    <span id="days">0</span>
+                    <small>дней</small>
+                </div>
+
+                <div>
+                    <span id="hours">0</span>
+                    <small>часов</small>
+                </div>
+
+                <div>
+                    <span id="minutes">0</span>
+                    <small>минут</small>
+                </div>
+
+                <div>
+                    <span id="seconds">0</span>
+                    <small>секунд</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="dresscode">
+
+            <h2>
+
+                Dress Code
+
+            </h2>
+
+            <p>
+
+                Нам будет очень приятно,
+                если в этот день вы поддержите
+                атмосферу праздника, выбрав
+                наряды в спокойной природной палитре.
+
+            </p>
+
+            <div class="palette">
+
+                <div class="color berry"></div>
+
+                <div class="color wine"></div>
+
+                <div class="color sage"></div>
+
+                <div class="color olive"></div>
+
+                <div class="color cream"></div>
+
+            </div>
+
+        </section>
+
+        <section class="rsvp">
+
+            <h2>
+
+                Ваш ответ
+
+            </h2>
+
+            <p>
+
+                Пожалуйста, сообщите нам
+                о своём решении.
+
+            </p>
+
+            <div class="buttons">
+
+                <button class="yes">
+
+                    С радостью разделю
+                    этот день с вами
+
+                </button>
+
+                <button class="no">
+
+                    К сожалению,
+                    не смогу присутствовать
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="footer">
+
+            <p>
+
+                Спасибо, что разделите
+                этот день вместе с нами.
+
+            </p>
+
+            <h2>
+
+                С любовью,
+
+            </h2>
+
+            <h3>
+
+                Максим и Анна
+
+            </h3>
+
+        </section>
+
+    </div>
+
+</div>
+
+<audio
+    id="music"
+    preload="auto">
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
+</audio>
 
 <script src="script.js"></script>
 
